@@ -1,5 +1,3 @@
-from typing import Optional
-from helpers import floorOrCeilCredits
 import array
 import math
 
@@ -36,18 +34,21 @@ class VotingMechanism:
             voterCredits[wID] = grant * (weight / summedWeights)
         return voterCredits
 
-    def voteAccountingFunction(votedTokens: int) -> int:
-        # quadratic funding rule
-        quadraticFundingVotes = math.sqrt(float(votedTokens))
-        smoothedQFvotes = floorOrCeilCredits(quadraticFundingVotes)
-        # qudratic voting rule
-        return math.pow(smoothedQFvotes, 2)
+    def voteAccountingFunction(voters: array, preferences: array, candidates: array) -> array:
+        for vID, voterPrefs in enumerate(preferences):
+            for cID, _ in enumerate(candidates):
+                # qudratic funding rule
+                candidates[cID] += math.sqrt(float(voterPrefs[cID] * voters[vID]))
+        for cID, _ in enumerate(candidates):
+            # quadratic voting rule
+            candidates[cID] = math.pow(candidates[cID], 2)
+        return candidates
 
     def socialChoiceFunction(grant: float, voteAccounts: array) -> array:
         summedVotes = 0 
         for accountVotes in voteAccounts:
             summedVotes += accountVotes
-        for accID, account in voteAccounts:
+        for accID, account in enumerate(voteAccounts):
             voteAccounts[accID] = grant * (account / summedVotes)
         return voteAccounts
 
