@@ -1,3 +1,3 @@
 import tests
 
-tests.highWeightConcentrationTest()
+tests.weightedVotingTest()

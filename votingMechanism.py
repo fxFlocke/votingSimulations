@@ -7,7 +7,7 @@ class VotingMechanism:
     You are able to write your own functions, that can be passed for the instantiation, 
     to run simulations with your own Voting-Mechanism.
 
-    The Functions are structured as follows(description below the function head):
+    The Functions are structured as follows:
 
     votingCreditAllocationFunction(grant: float, weights: array[float]) -> int
         Based on the weights and the Grant, this function assigns Voting-Tokens that

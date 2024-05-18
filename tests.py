@@ -1,21 +1,7 @@
 from votingMechanism import VotingMechanism
 from simulation import VotingSimulation
+from mechanisms import singleWinnerQCV as swQCV
 import array
-
-# social choice function from Track 4 to plug in
-def socialChoiceFunction(grant: float, voteAccounts: array) -> array:
-    highestVoteCountIndex = 0
-    highestVoteCountValue = 0
-    for accID, accountVotes in enumerate(voteAccounts):
-        if accountVotes > highestVoteCountValue:
-            highestVoteCountValue = accountVotes
-            highestVoteCountIndex = accID
-    for accID, _ in enumerate(voteAccounts):
-        if accID == highestVoteCountIndex:
-            voteAccounts[accID] = grant
-        else:
-            voteAccounts[accID] = 0
-    return voteAccounts
 
 #just a few examples
 
@@ -57,7 +43,7 @@ def lowParticipationTest():
 
 def highWeightConcentrationTest():
     mechanism = VotingMechanism(
-        socialChoiceFunction=socialChoiceFunction
+        socialChoiceFunction=swQCV.SingleWinnerQcvMechanism.socialChoiceFunction
     )
     simulation = VotingSimulation(
         grant=10000,
@@ -67,5 +53,32 @@ def highWeightConcentrationTest():
         voterGroups=[0.2, 0.3, 0.4, 0.1],
         weightDescription=[0.1, 0.1, 0.1, 0.7],
         preferenceDescription=[[0.2, 0.6, 0.2, 0], [0.3, 0.5, 0.2, 0], [0.1, 0.5, 0.4, 0], [0, 0, 0, 1]]
+    )
+    simulation.simulate()
+
+def weightedVotingTest():
+    mechanism = VotingMechanism()
+    simulation = VotingSimulation(
+        grant=10000,
+        votersCount=100,
+        candidatesCount=4,
+        mechanism=mechanism,
+        voterGroups=[0.2, 0.3, 0.4, 0.1],
+        weightRange=[1, 2, "int"],
+        weightDescription=[1, 1, 2, 2],
+        preferenceDescription=[[0.2, 0.6, 0.2, 0], [0.3, 0.5, 0.2, 0], [0.1, 0.5, 0.4, 0], [0, 0, 0, 1]]
+    )
+    simulation.simulate()
+
+def singleRandomizedPreferenceTest():
+    mechanism = VotingMechanism()
+    simulation = VotingSimulation(
+        grant=10000,
+        votersCount=100,
+        candidatesCount=4,
+        mechanism=mechanism,
+        singlePreference=True,
+        voterGroups=[0.2, 0.3, 0.4, 0.1],
+        weightRange=[1, 2, "int"],
     )
     simulation.simulate()
