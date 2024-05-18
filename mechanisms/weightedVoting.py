@@ -8,7 +8,7 @@ class WeightedVoting:
             voterCredits[wID] = grant * weight
         return voterCredits
 
-def voteAccountingFunction(voters: array, preferences: array, candidates: array) -> array:
+    def voteAccountingFunction(voters: array, preferences: array, candidates: array) -> array:
         for vID, voterPrefs in enumerate(preferences):
             for cID, _ in enumerate(candidates):
                 candidates[cID] += float(voterPrefs[cID] * voters[vID])

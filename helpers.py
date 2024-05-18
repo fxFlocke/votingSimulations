@@ -25,7 +25,6 @@ def createWeightFromDescription(count: int, groups: array, weightDescription: ar
         for i in range(offset, offset + floorOrCeil(groupSize * count)):
             weights[i] = (weightDescription[gID] / (groupSize * count))
         offset += floorOrCeil(groupSize * count)
-    print(weights)
     return weights
     
 def createRandomWeightsFromRange(count: int, weightRange: array) -> array:
@@ -39,10 +38,8 @@ def createRandomWeightsFromRange(count: int, weightRange: array) -> array:
         for i in range(count):
             weights[i] = ran.randint(weightRange[0], weightRange[1])
             sum += weights[i]
-    print(weights)
     for wID in range(count):
         weights[wID] /= sum
-    print(weights)
     return weights    
     
 def createWeightFromDescriptionAndRange(count: int, groups: array, weightDescription: array) -> array:
