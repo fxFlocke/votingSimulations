@@ -6,7 +6,6 @@ from mechanisms import weightedClustering as wC
 import array
 
 #just a few examples
-
 def randomTest():
     mechanism = VotingMechanism()
     simulation = VotingSimulation(

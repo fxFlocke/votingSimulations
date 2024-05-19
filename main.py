@@ -1,8 +1,5 @@
 import tests
 
-
-
-
 tests.randomTest()
 tests.equalDistributionTest()
 tests.lowParticipationTest()
