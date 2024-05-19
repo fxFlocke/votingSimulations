@@ -21,8 +21,7 @@ class VotingMechanism:
     socialChoiceFunction(grant: float, voteAccounts: array[float]) -> array[float]
         This function chooses how the Grant will be distributed between candidates. 
         By default this Method distributes the Grant based on total shares to the candidates. 
-        If you just want to reward the winner, assign the Grant to the 1st Element
-        in the voteAccounts, 0 to the rest of Elements & return it.
+        If you just want to reward the winner, you can use the function provided in singleWinnerQCV.py
     """
 
     def votingCreditAllocationFunction(grant: float, weights: array) -> array:
@@ -61,5 +60,3 @@ class VotingMechanism:
         self.votingCreditAllocationFunction = votingCreditAllocationFunction
         self.voteAccountingFunction = voteAccountingFunction
         self.socialChoiceFunction = socialChoiceFunction
-
-

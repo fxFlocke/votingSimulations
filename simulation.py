@@ -1,5 +1,5 @@
 from votingMechanism import VotingMechanism
-import helpers
+import mechanisms.helpers as helpers
 import visualizer
 import array
 
@@ -61,7 +61,7 @@ class VotingSimulation:
     def assignVotingCredits(self):
         if self.weightDescription == None:
             if self.weightRange == None:
-                self.weightDistribution = helpers.createRandomWeights(self.votersCount, self.weightRange)
+                self.weightDistribution = helpers.createRandomWeights(self.votersCount)
             else:
                 self.weightDistribution = helpers.createRandomWeightsFromRange(self.votersCount, self.weightRange)
         else:
@@ -92,5 +92,3 @@ class VotingSimulation:
         visualizer.visualizeCandidateVotes(self.candidates, self.candidatesCount)
         self.choose()
         visualizer.visualizeGrantDistribution(self.candidates, self.candidatesCount)
-
-    

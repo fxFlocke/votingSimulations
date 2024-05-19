@@ -2,6 +2,8 @@ import math
 import array
 import random as ran
 
+LastSum = 0
+
 def createRandomWeights(count: int) -> array:
     weights = [0] * count
     sum = 0
@@ -15,8 +17,9 @@ def createRandomWeights(count: int) -> array:
 
 def createRandomChoice(count: int) -> array:
     voterPreference = [0] * count
-    candidateChoice = ran.choice([i for i in range [count]])
+    candidateChoice = ran.choice([i for i in range(count)])
     voterPreference[candidateChoice] = 1
+    return voterPreference
 
 def createWeightFromDescription(count: int, groups: array, weightDescription: array) -> array:
     weights = [0] * count
@@ -29,30 +32,38 @@ def createWeightFromDescription(count: int, groups: array, weightDescription: ar
     
 def createRandomWeightsFromRange(count: int, weightRange: array) -> array:
     weights = [0] * count
-    sum = 0
+    global LastSum
+    LastSum = 0
     if weightRange[2] == "int":
         for i in range(count):
             weights[i] = ran.randint(weightRange[0], weightRange[1])
-            sum += weights[i]
+            LastSum += weights[i]
     if weightRange[2] == "float":
         for i in range(count):
             weights[i] = ran.randint(weightRange[0], weightRange[1])
-            sum += weights[i]
+            LastSum += weights[i]
     for wID in range(count):
-        weights[wID] /= sum
+        weights[wID] /= LastSum
     return weights    
+
+def translateWeightsToValues(weights: array) -> array:
+    global LastSum
+    for wID in range(len(weights)):
+        weights[wID] *= LastSum
+    return weights  
     
 def createWeightFromDescriptionAndRange(count: int, groups: array, weightDescription: array) -> array:
     weights = [0] * count
     offset = 0
-    sum = 0
+    global LastSum
+    LastSum = 0
     for gID, groupSize in enumerate(groups):
         for i in range(offset, offset + floorOrCeil(groupSize * count)):
             weights[i] = weightDescription[gID]
-            sum += weights[i]
+            LastSum += weights[i]
         offset += floorOrCeil(groupSize * count)
     for wID in range(count):
-        weights[wID] /= sum
+        weights[wID] /= LastSum
     return weights    
 
 def createMultiRandomizedPreferences(votersCount: int, candidatesCount: int) -> array:
