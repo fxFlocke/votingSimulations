@@ -1,11 +1,13 @@
 
 import array
 
+# Define Weights for the Voters clustered here
 ClusterStrengths = [0.2, 0.4, 0.6, 0.8]
 
 class WeightedClusteringMechanism:
     def voteAccountingFunction(voters: array, preferences: array, candidates: array) -> array:
         global ClusterStrengths
+        # adjust clusterCounts in respect to the amount of Strengths here
         clusters = clusterVoterByWeights(voters, 4)
         candidatesCount = len(candidates)
         finalCandidateVotes = [0] * candidatesCount
