@@ -57,6 +57,7 @@ class VotingSimulation:
         self.weightRange = weightRange
         self.weightDescription = weightDescription
         self.preferenceDescription = preferenceDescription
+        self.winner=0
 
     def assignVotingCredits(self):
         if self.weightDescription == None:
@@ -81,14 +82,18 @@ class VotingSimulation:
             self.preferenceDistribution = helpers.createPreferencesFromDescription(votersCount=self.votersCount, candidatesCount=self.candidatesCount, groups=self.voterGroups, preferenceDescription=self.preferenceDescription)
         self.candidates = self.mechanism.voteAccountingFunction(self.voters, self.preferenceDistribution, self.candidates)
 
-    def choose(self):
-        self.candidates = self.mechanism.socialChoiceFunction(self.grant, self.candidates)
+    def choose(self) -> int:
+        [self.candidates,self.winner]  = self.mechanism.socialChoiceFunction(self.grant, self.candidates)
 
-    def simulate(self):
+    def simulate(self, visuals: bool=True) -> int:
         self.assignVotingCredits()
-        visualizer.visualizeVotingWeights(self.weightDistribution, self.votersCount)
-        visualizer.visualizeVoterCredits(self.voters, self.votersCount)
+        if visuals:
+            visualizer.visualizeVotingWeights(self.weightDistribution, self.votersCount)
+            visualizer.visualizeVoterCredits(self.voters, self.votersCount)
         self.vote()
-        visualizer.visualizeCandidateVotes(self.candidates, self.candidatesCount)
+        if visuals:
+            visualizer.visualizeCandidateVotes(self.candidates, self.candidatesCount)
         self.choose()
-        visualizer.visualizeGrantDistribution(self.candidates, self.candidatesCount)
+        if visuals:
+            visualizer.visualizeGrantDistribution(self.candidates, self.candidatesCount)
+        return self.winner

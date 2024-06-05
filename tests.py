@@ -3,7 +3,7 @@ from simulation import VotingSimulation
 from mechanisms import singleWinnerQCV as swQCV
 from mechanisms import rangedVoting as rV
 from mechanisms import weightedClustering as wC
-import array
+from mechanisms import helpers
 
 #just a few examples
 def randomTest():
@@ -149,3 +149,28 @@ def rangedQCVTest():
         preferenceDescription=[[0.2, 0.6, 0.2, 0], [0.3, 0.5, 0.2, 0], [0.1, 0.5, 0.4, 0], [0, 0, 0, 1]]
     )
     simulation.simulate()
+
+def QCVDictatorTest():
+    mechanism = VotingMechanism(
+        socialChoiceFunction=swQCV.SingleWinnerQcvMechanism.socialChoiceFunction
+    )
+    voterCount = 200
+    divisors=[20, 120, 39, 20, 1]
+    voterGroups=helpers.generateVoterGroups(divisors=divisors,voterCount=voterCount)
+    simulation = VotingSimulation(
+        grant=10000,
+        votersCount=voterCount,
+        candidatesCount=4,
+        mechanism=mechanism,
+        voterGroups=voterGroups,
+        weightDescription=[0, 0.005, 0.005, 0.00, 0.99],
+        preferenceDescription=[[0, 0, 0, 0], [0, 0.8, 0.2, 0], [0.2, 0.6, 0.2, 0], [0.33, 0.33, 0.33, 0], [0, 0, 0, 1]]
+    )
+    for i in range(0, int(voterCount/len(divisors)-1)):
+        for j in range(len(divisors)-1):
+            voterCount-=1
+            divisors[j] -= 1
+            voterGroups = helpers.generateVoterGroups(divisors=divisors,voterCount=voterCount)
+            winner=simulation.simulate(visuals=False)
+            if winner==3:
+                print('dicator for voterCount: ', voterCount)

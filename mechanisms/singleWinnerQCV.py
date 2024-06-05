@@ -1,6 +1,6 @@
 import array
 class SingleWinnerQcvMechanism:
-    def socialChoiceFunction(grant: float, voteAccounts: array) -> array:
+    def socialChoiceFunction(grant: float, voteAccounts: array):
         highestVoteCountIndex = 0
         highestVoteCountValue = 0
         for accID, accountVotes in enumerate(voteAccounts):
@@ -12,4 +12,4 @@ class SingleWinnerQcvMechanism:
                 voteAccounts[accID] = grant
             else:
                 voteAccounts[accID] = 0
-        return voteAccounts
+        return [voteAccounts, highestVoteCountIndex]

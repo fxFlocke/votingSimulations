@@ -99,3 +99,9 @@ def floorOrCeil(val: float) -> int:
         return int(math.floor(val))
     else:
         return int(math.ceil(val))
+    
+def generateVoterGroups(divisors: array, voterCount: int) -> array:
+    voterGroups = [0] * len(divisors)
+    for i in range(len(divisors)):
+        voterGroups[i] = (divisors[i] / voterCount)
+    return voterGroups
