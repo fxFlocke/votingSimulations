@@ -17,7 +17,7 @@ def readNFTdataOfVoters() -> array:
     return nftData
 
 def readNFTweights() -> array:
-    csvValues = p.read_csv("interfaces/teTrack4/data/votingWeights.csv", usecols=[columnReadDescriptionNFTweights], dtype=int)
+    csvValues = p.read_csv("interfaces/teTrack4/data/votingWeightsComm.csv", usecols=[columnReadDescriptionNFTweights], dtype=int)
     return csvValues.to_numpy().flatten()
 
 def calculateVoterScores(voterData: array, weights: array) -> array:
@@ -45,7 +45,7 @@ def formGroups(scores: array) -> array:
             groupAmount = 0
     return groupIndicators    
 
-def transformGroupsToSimulationInput(groupIndicator: array) -> array:
+def transformGroupsToSimulationInput(groupIndicator: array) -> dict:
     global combinedScores
     global voterCount
     groupAmount = len(groupIndicator)

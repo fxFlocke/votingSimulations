@@ -5,7 +5,6 @@ from mechanisms import rankNslide as rNs
 from mechanisms import groupHug as gH
 from mechanisms import helpers
 
-#just a few examples
 def randomTest():
     mechanism = VotingMechanism()
     simulation = VotingSimulation(
