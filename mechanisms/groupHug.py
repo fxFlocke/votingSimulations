@@ -4,7 +4,7 @@ import array
 # Define Weights for the Voters clustered here
 ClusterStrengths = [0.2, 0.4, 0.6, 0.8]
 
-class WeightedClusteringMechanism:
+class GroupHugMechanism:
     def voteAccountingFunction(voters: array, preferences: array, candidates: array) -> array:
         global ClusterStrengths
         # adjust clusterCounts in respect to the amount of Strengths here
@@ -16,7 +16,6 @@ class WeightedClusteringMechanism:
              for candidateID, candidateVotes in enumerate(clusterVotes):
                   finalCandidateVotes[candidateID] = candidateVotes * ClusterStrengths[clusterID]
         return finalCandidateVotes
-            
 
 def getClusterVotes(cluster: array, voters: array, preferences: array, candidatesCount: int) -> array:
      clusterPreference = [0] * candidatesCount
@@ -24,7 +23,6 @@ def getClusterVotes(cluster: array, voters: array, preferences: array, candidate
           for cID in range(candidatesCount):
                clusterPreference[cID] += (preferences[voter][cID] * voters[voter])
      return clusterPreference
-
 
 def clusterVoterByWeights(weights: array, clusterCount: int) -> array:
         maxValue = getMaxValue(weights)

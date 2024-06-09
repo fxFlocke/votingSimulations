@@ -1,13 +1,8 @@
-import tests
+from customTests.examples import *
+from customTests.teTrack4verificationTests import *
 
-# tests.randomTest()
-# tests.equalDistributionTest()
-# tests.lowParticipationTest()
-# tests.highWeightConcentrationTest()
-# tests.singleRandomizedPreferenceTest()
-# tests.multiRandomizedPreferenceTets()
-# tests.weightedVotingTest()
-# tests.randomCusteringTest()
-# tests.describedClusteringTest()
-# tests.rangedQCVTest()
-tests.QCVDictatorTest()
+# QCVDictatorTest()
+# RankNSlideDictatorTest()
+# GroupHugDictatorTest()
+
+BaseTest()

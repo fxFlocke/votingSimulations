@@ -1,7 +1,7 @@
 import array
 from . import helpers
 
-class RangedVotingMechanism:
+class RankNslideMechanism:
     def votingCreditAllocationFunction(grant: float, weights: array) -> array:
         voterCredits = helpers.translateWeightsToValues(weights)
         return voterCredits
