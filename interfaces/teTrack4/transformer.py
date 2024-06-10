@@ -1,4 +1,7 @@
 import pandas as pd
+from . import patternVisualizer
+from . import categoriser
+from . import synergyGenerator
 
 # Define the columns to read for the NFT data
 columnReadDescriptionNFTdata = [
@@ -14,6 +17,9 @@ amplifiers = {
     'F': 2,
     'POA': 1.5
 }
+
+# from, to, strength
+synergyStrength = [1, 1, 1, 1, 1, 1]
 
 voterCount = 0
 combinedScores = 0
@@ -38,11 +44,21 @@ def calculateVoterScores(voterData: list, weights: pd.DataFrame, amplifiers: dic
     # Apply amplifiers to weights based on categories
     amplified_weights = [raw_weights[i] * amplifiers.get(categories[i], 1) for i in range(len(categories))]
 
+    # Extract Categories
+    categoryResults = categoriser.groupCategories(voterData)
+
+    # Extract Synergies
+    synergyResults = synergyGenerator.calculateSynergies(voterData)
+
     # Calculate voter scores
     voterScores = [0] * len(voterData[0])
     for i, voterDataSet in enumerate(voterData):
         for j, nftValue in enumerate(voterDataSet):
             voterScores[j] += nftValue * amplified_weights[i]
+            for _, synergy in enumerate(synergyResults):
+                voterScores[j] += synergy[j]
+            for _, category in enumerate(categoryResults):
+                voterScores[j] += category[j] 
     return voterScores
 
 def formGroups(scores: list) -> list:
@@ -78,6 +94,7 @@ def transformGroupsToSimulationInput(groupIndicator: list) -> dict:
 
 def DataToVoterGroupsAndWeights() -> dict:
     nftData = readNFTdataOfVoters()
+    #patternVisualizer.visualizeRelations(nftData)
     nftWeights = readNFTweights()
     voterScores = calculateVoterScores(nftData, nftWeights, amplifiers)
     voterScores.sort()
