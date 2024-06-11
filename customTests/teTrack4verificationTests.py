@@ -5,7 +5,7 @@ from simulation import VotingSimulation
 from mechanisms import singleWinnerQCV as swQCV
 from mechanisms import rankNslide as rNs
 
-filePath = 'interfaces/teTrack4/data/firstAssumption.json'
+filePath = 'interfaces/teTrack4/data/assumptions/equalDistribution.json'
 trackData = transformer.DataToVoterGroupsAndWeights()
 preferenceDescription = pg.generatePreferenceDescription(filePath)
 
