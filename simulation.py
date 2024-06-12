@@ -1,6 +1,6 @@
 from votingMechanism import VotingMechanism
 import mechanisms.helpers as helpers
-import visualizer
+import plugins.visualizer as visualizer
 import array
 
 class VotingSimulation:
@@ -85,15 +85,15 @@ class VotingSimulation:
     def choose(self) -> int:
         [self.candidates,self.winner]  = self.mechanism.socialChoiceFunction(self.grant, self.candidates)
 
-    def simulate(self, visuals: bool=True) -> int:
+    def simulate(self, visuals: bool=False) -> int:
         self.assignVotingCredits()
         if visuals:
             visualizer.visualizeVotingWeights(self.weightDistribution, self.votersCount)
-            visualizer.visualizeVoterCredits(self.voters, self.votersCount)
+            #visualizer.visualizeVoterCredits(self.voters, self.votersCount)
         self.vote()
         if visuals:
             visualizer.visualizeCandidateVotes(self.candidates, self.candidatesCount)
         self.choose()
-        if visuals:
-            visualizer.visualizeGrantDistribution(self.candidates, self.candidatesCount)
+        #if visuals:
+            #visualizer.visualizeGrantDistribution(self.candidates, self.candidatesCount)
         return self.winner

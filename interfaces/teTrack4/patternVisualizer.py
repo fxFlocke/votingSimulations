@@ -1,7 +1,7 @@
 import array
 import matplotlib.pyplot as plt
-from . import synergyGenerator
-from . import categoriser
+from .math import synergyGenerator
+from .math import categoriser
 
 colors = [plt.cm.RdBu_r(i/5) for i in range(10)]
 

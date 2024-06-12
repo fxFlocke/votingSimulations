@@ -16,17 +16,16 @@ synergies = [
 ]
 synergyLabels = [
     ["Voters", "POK&POE"],
-    ["Voters", "POK&POC"],
-    ["Voters", "POK&POA"],
+    ["Voters", "POK&POC"],#
+    ["Voters", "POK&POA"],#
     ["Voters", "POE&POC"],
     ["Voters", "POE&POA"],
-    ["Voters", "POC&POA"],
+    ["Voters", "POC&POA"],#
     ["Voters", "POK&POE&POC"],
     ["Voters", "POK&POE&POA"],
     ["Voters", "POE&POC&POA"],
     ["Voters", "All"]
 ]
-
 
 def calculateSynergies(combinedData: array, visuals: bool=False) -> array:
     voterCount = len(combinedData[0])
@@ -48,17 +47,3 @@ def calculateSynergies(combinedData: array, visuals: bool=False) -> array:
             plt.xlabel(synergyLabels[i][1])
             plt.show()
     return synergyResults
-
-#The synergies should go stronger in the following order
-
-#weak
-#POA with POK
-#POC with POK
-
-#middle
-#POA with POC
-#POE with POC
-#POE with POA
-
-#strong
-#POE with POC with POA

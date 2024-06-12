@@ -1,29 +1,45 @@
-Name,CodeName,Category,Count,Weight
-NFT-based Reputation in Web3,NFTREP_V1,POK,57.0,3.0
-Token Engineering @EthCC Paris 2023 - Speaker,SPEAKER_ETHCC_PARIS23,POE,7.0,16.0
-TE FUNDAMENTALS STUDY GROUP HOST C2 2022/2023,STUDY_GROUP_HOST_C2_22_23,POC,1.0,10.0
-ETHCC Attendance in 2023,ETHCC_23, POA, 20.0, 1.0
-TE FUNDAMENTALS COURSE AUTHOR LAUNCH 2022,FUND_AUTHOR, POE,4.0,20.0
-TE360 STUDY GROUP HOST 2022,STUDY_GROUP_HOST_360_22,POC,0.0,10.0
-TE FUNDAMENTALS STUDY GROUP HOST 2022/2023,STUDY_GROUP_HOST_FUND_22_23,POC,21.0,10.0
-Token Engineering Barcamp - Speaker - Paris 2023,SPEAKER_BARCAMP_PARIS_23,POE,12.0,12.0
-Token Engineering Barcamp - Paris 2023,BARCAMP_PARIS_23,POA,23.0,5.0
-Token Engineering Barcamp - Team - Paris 2023,TEAM_BARCAMP_PARIS_23,POC,11.0,1.0
-TE FUNDAMENTALS 1,FUND_MOD_1,POK,332.0,7.0
-TE FUNDAMENTALS 2,FUND_MOD_2,POK,249.0,7.0
-TE FUNDAMENTALS 3,FUND_MOD_3,POK,168.0,7.0
-TE FUNDAMENTALS 4,FUND_MOD_4,POK,127.0,7.0
-TE FUNDAMENTALS 5,FUND_MOD_5,POK,129.0,7.0
-STUDY_SEASON_REGISTRATION,STUDY_SEASON_REGISTRATION,POA,250.0,1.0
-LIVE_TRACK_1,LIVE_TRACK_1,POK,30.0,10.0
-LIVE_TRACK_3,LIVE_TRACK_3,POK,30.0,10.0
-LIVE_TRACK_4,LIVE_TRACK_4,POK,30.0,10.0
-LIVE_TRACK_5,LIVE_TRACK_5,POK,30.0,10.0
-LIVE_TRACK_6,LIVE_TRACK_6,POK,30.0,10.0
-LIVE_TRACK_7,LIVE_TRACK_7,POK,30.0,10.0
-LIVE_TRACK_8,LIVE_TRACK_8,POK,30.0,10.0
-FELLOWSHIP_COMM,FELLOWSHIP_COMM,POE,10.0,16.0
-STUDY_SEASON_SPEAKER,STUDY_SEASON_SPEAKER,POE,8.0,16.0
-"TE Fundamentals ""We made it""",FUND_WE_MADE_IT,POC,20.0,10.0
-Set TEF 3&4,FUND_MOD_3_AND_4,F,,5.0
-Set TEF ALL,FUND_ALL,F,,10.0
+ID,CodeName,Count,Category,Weight
+1,TE FUNDAMENTALS – MODULE 1 of 5 – VERSION 1 – 2022,243,proof of knowledge,7
+2,TE FUNDAMENTALS – MODULE 1 of 5 – VERSION 2 – 2023,80,proof of knowledge,7
+3,TE FUNDAMENTALS – MODULE 2 of 5 – VERSION 1 – 2022,188,proof of knowledge,7
+4,TE FUNDAMENTALS – MODULE 2 of 5 – VERSION 2 – 2023,61,proof of knowledge,7
+5,TE FUNDAMENTALS – MODULE 3 of 5 – VERSION 1 – 2022,136,proof of knowledge,7
+6,TE FUNDAMENTALS – MODULE 3 of 5 – VERSION 2 – 2023,32,proof of knowledge,7
+7,TE FUNDAMENTALS – MODULE 4 of 5 – VERSION 1 – 2022,105,proof of knowledge,7
+8,TE FUNDAMENTALS – MODULE 4 of 5 – VERSION 2 – 2023,22,proof of knowledge,7
+9,TE FUNDAMENTALS – MODULE 5 of 5 – VERSION 1 – 2022,98,proof of knowledge,7
+10,TE FUNDAMENTALS – MODULE 5 of 5 – VERSION 2 – 2023,31,proof of knowledge,7
+11,TE FUNDAMENTALS COURSE AUTHOR – LAUNCH 2022,4,proof of expertise,20
+12,TE360 STUDY GROUP HOST 2022,0,proof of contribution,10
+13,TE FUNDAMENTALS STUDY GROUP HOST 2022/2023,21,proof of contribution,10
+14,TE FUNDAMENTALS STUDY GROUP HOST C2 2022/2023,1,proof of contribution,10
+15,Token Engineering @EthCC[6] 2023 - Speaker,7,proof of expertise,16
+16,Token Engineering @EthCC[6] 2023,33,proof of attendance,1
+17,Token Engineering Barcamp - Speaker - Paris 2023,12,proof of expertise,12
+18,Token Engineering Barcamp - Paris 2023,23,proof of attendance,5
+19,Token Engineering Barcamp - Team - Paris 2023,11,proof of contribution,1
+20,NFT-based Reputation in Web3 – V1 – 2023,57,proof of knowledge,3
+21,NFT-based Reputation in Web3 – V2 – 2024,,proof of knowledge,3
+22,STUDY SEASON 2024 STUDENT (whitelist distribution),,proof of attendance,1
+23,STUDY SEASON 2024 TRACK 1 GRADUATE (whitelist distribution),,proof of knowledge,10
+24,STUDY SEASON 2024 TRACK 2 GRADUATE (no NFT),,proof of knowledge,10
+25,STUDY SEASON 2024 TRACK 3 GRADUATE (mint),,proof of knowledge,10
+26,STUDY SEASON 2024 TRACK 4 GRADUATE (whitelist distribution),,proof of knowledge,10
+27,STUDY SEASON 2024 TRACK 5 GRADUATE (whitelist distribution),,proof of knowledge,10
+28,STUDY SEASON 2024 TRACK 6 GRADUATE (self-mint),,proof of knowledge,10
+29,STUDY SEASON 2024 TRACK 7 GRADUATE (self-mint),,proof of knowledge,10
+30,STUDY SEASON 2024 TRACK 8 GRADUATE (whitelist distribution),,proof of knowledge,10
+31,STUDY SEASON 2024 LIVE TRACK 1 SPEAKER (whitelist distribution),,proof of expertise,16
+32,STUDY SEASON 2024 LIVE TRACK 2 SPEAKER (whitelist distribution),,proof of expertise,16
+33,STUDY SEASON 2024 LIVE TRACK 3 SPEAKER (whitelist distribution),,proof of expertise,16
+34,STUDY SEASON 2024 LIVE TRACK 4 SPEAKER (whitelist distribution),,proof of expertise,16
+35,STUDY SEASON 2024 LIVE TRACK 5 SPEAKER (whitelist distribution),,proof of expertise,16
+36,STUDY SEASON 2024 LIVE TRACK 6 SPEAKER (whitelist distribution),,proof of expertise,16
+37,STUDY SEASON 2024 LIVE TRACK 7 SPEAKER (whitelist distribution),,proof of expertise,16
+38,STUDY SEASON 2024 LIVE TRACK 8 SPEAKER (whitelist distribution),,proof of expertise,16
+39,TE Academy Fellowship 2024 Committee Member (whitelist distribution),,proof of expertise,16
+40,TE Academy Fellowship 2024 Candidate (whitelist distribution),,proof of expertise,18
+41,TE Academy Fellowship 2024 Winner (whitelist distribution),,proof of expertise,18
+42,Token Engineering @EthCC[7] 2024 - Speaker (whitelist distribution),,proof of expertise,20
+43,Token Engineering @EthCC[7] 2024 (whitelist distribution),,proof of attendance,1
+44,"TE FUNDAMENTALS ""WE MADE IT"" (whitelist distribution)",,proof of contribution,10

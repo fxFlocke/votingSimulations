@@ -1,16 +1,17 @@
 import array
 
-NftCategoryIdentifiers = [
-    'POK','POE','POC','POA','POE','POC','POC','POE','POA','POC','POK','POK','POK','POK','POK'
-]
+def generateIndices() -> array:
+    poks = [i for i in range(0, 9)]
+    poks += [20, 19]
+    poks += ([i for i in range(22, 31)])
+    poes = [10, 14, 16]
+    poes += ([i for i in range(32, 41)])
+    pocs = ([i for i in range(11, 13)])
+    pocs.append(18)
+    poas = [15, 17, 21]
+    return [poks, poes, pocs, poas]
 
-categoryIndices = [
-[0, 10, 11, 12, 13, 14], #POK
-[1, 4, 7], #POE
-[2, 5, 6, 9], #POC
-[3, 8] #POA
-]
-
+categoryIndices = generateIndices()
 categoryLabels = [
     "POK",
     "POE",
